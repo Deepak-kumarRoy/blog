@@ -1,0 +1,39 @@
+$font-stack:'Open Sans', sans-serif;
+$fontsize: 15px;
+$themecolor: #0083d0;/*shade/lighten/saturate/desaturate/adjust-hue/tint/darken($themecolor, 10%)   or  rgba($base-color, .7)*/
+$textcolor: #444;
+
+@mixin transform($transforms) {-moz-transform: $transforms; -o-transform: $transforms; -ms-transform: $transforms; -webkit-transform: $transforms; transform: $transforms;}
+// rotate
+@mixin rotate ($deg) { @include transform(rotate(#{$deg}deg));}
+@mixin rotateX ($xdeg) { @include transform(rotateX(#{$xdeg}deg));}
+@mixin rotateY ($ydeg) { @include transform(rotateY(#{$ydeg}deg));}
+ 
+// scale ----- @include scale(5, 8); or @include scaleX(-1);
+@mixin scale($x, $y) {@include transform(scale($x, $y));}
+@mixin scaleX($x) {@include transform(scaleX($x));}
+@mixin scaleY($y) {@include transform(scaleY($y));}
+
+
+// translate ----- @include translate(-25px,10px);
+@mixin translate ($x, $y) {   @include transform(translate($x, $y));}
+
+// skew ----- @include skew(25,10);
+@mixin skew ($x, $y) { @include transform(skew(#{$x}deg, #{$y}deg));}
+
+//transform origin
+@mixin transform-origin ($origin) {moz-transform-origin: $origin; -o-transform-origin: $origin; -ms-transform-origin: $origin; -webkit-transform-origin: $origin; transform-origin: $origin;}
+/*ex. .test{@include transform-origin(top left);}
+https://codepen.io/sawmac/pen/qGudy
+*/
+
+@mixin transition($transition...) { -moz-transition:$transition; -o-transition:$transition; -webkit-transition: $transition; transition:$transition;}
+@mixin transition-delay($delay...) {-moz-transition-delay: $delay; -o-transition-delay: $delay; -webkit-transition-delay: $delay; transition-delay: $delay;}
+//https://codepen.io/sawmac/pen/cayhK---- @include transition(background-color 1s .5s, color 2s);
+
+
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset:"") { -webkit-box-shadow:$top $left $blur $spread $color #{$inset};  -moz-box-shadow:$top $left $blur $spread $color #{$inset};  box-shadow:$top $left $blur $spread $color #{$inset};}
+//https://codepen.io/anon/pen/GrIuh----- @include box-shadow(inset, 0, 0, 8px, 0px, rgba(0, 0, 0, 0.3));
+
+@mixin border-radius($radius) {-webkit-border-radius: $radius;-moz-border-radius: $radius;-ms-border-radius: $radius;border-radius: $radius;}
+//.box { @include border-radius(10px); }

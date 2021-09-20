@@ -1,0 +1,46 @@
+<!-- <p>profile works!</p> -->
+<div class="mainbody">
+    <div class="wrapper">
+        <div class="inlinearea prfl">
+            <div class="colm prflsdtl">
+                <div class="pfl-pnl">
+                    <h1>{{data.name}} <span>{{data.id}}</span>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" autocomplete="on" >Follow</button></h1>
+                    <section class="img-box">
+                        <h5>Photo:</h5>
+                        <div class="row prfl_picrow">
+                            <label><span class="prfl_pic" style="background-image:url(https://bit.ly/33LLz8j)"></span><input type="file"><samp><i class="fas fa-camera"></i> Change Photo</samp></label>
+                        </div>
+                    </section>
+                    <section class="dtl-box">
+                        <h5>Email ID: </h5>
+                        <div class="row">{{data.email}}</div>
+                        <div class="inpt"><input type="text" class="inputarea" placeholder="email" value="dasarijit@gamil.com"><button type="submit"><i class="far fa-save"></i></button></div>
+                    </section>
+                    <section class="dtl-box">
+                        <h5>About myself: </h5>
+                        <div class="row">{{data.about}}</div>
+                        <div class="inpt"><textarea class="inputarea" placeholder="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</textarea><button type="submit"><i class="far fa-save"></i></button></div>
+                    </section>
+                </div>
+            </div>
+            <div class="colm rgtcont" >               
+                <div class="flows">
+                    <div class="tablearea">
+                        <div class="cell"><p><a class="open-popup-link"><strong>Followers</strong></a></p><p>{{data?.followers.length}}</p></div>
+                        <div class="cell"><p><a class="open-popup-link"><strong>Following</strong></a></p><p>{{data?.following.length}}</p></div>
+                    </div>
+                </div>
+                <div class="flrsukno" *ngIf="follower">
+                    <a href="#flrsuknos" class="open-popup-link">
+                        <div class="tablearea">
+                            <div class="cell"><span class="pfl_pic" style="background-image:url(https://bit.ly/33F4mlP)"></span><span class="pfl_pic" style="background-image:url(https://bit.ly/34V1Acn)"></span><span class="pfl_pic" style="background-image:url(https://bit.ly/2CLfstu)"></span></div>
+                            <div class="cell">Followed by {{follower}}</div>
+                        </div>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-blog [userId]="userId"></app-blog>

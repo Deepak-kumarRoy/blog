@@ -1,0 +1,9 @@
+.pad-16 {
+    padding: 6px 0px;
+}
+.center-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 150%;
+}

@@ -1,0 +1,17 @@
+<div class="mainbody">
+    <div class="wrapper">
+        <div class="blog_box pad-16" *ngFor="let item of search ">
+            <section class="conts">
+                <article class="cont_txt">
+                    <div class="top_bar">
+                        <div class="pstdtl" >
+                            <span class="nms"><span>
+                                <i class="far fa-user-circle" style="font-size: 20px;"></i></span>&nbsp;<a routerLink="/profile/{{item.userId}}">{{item.userName}}</a></span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+

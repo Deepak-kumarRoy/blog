@@ -1,0 +1,9 @@
+.center-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.pointer {
+    cursor: pointer;
+    color: rgb(8, 123, 168);
+}

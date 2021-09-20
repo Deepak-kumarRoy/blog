@@ -1,0 +1,87 @@
+<div class="mainbody">
+    <div class="wrapper">
+        <div class="inlinearea blgs center-div">
+            <section class="colm blog_line">
+                <form [formGroup]="postForm" (submit)="savePost()">
+                    <div class="blog_box postar">
+                        <section class="conts">
+                            <article class="cont_txt">
+                                <div class="mdl_bar">
+                                    <div class="tablearea vtop">
+                                        <div class="cell pht">
+                                            <span
+                                                ><i class="far fa-user-circle" style="font-size: 60px;"></i></span>
+                                        </div>
+                                        <div class="cell cnt"><textarea class="inputarea" formControlName="postMsg"
+                                                placeholder="Share your story..."></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="btm_bar">
+                                    <div class="tablearea">
+                                        <div class="fl_l">
+                                            <div class="custombrowse"><label><input type="file" formControlName="image"
+                                                        style="display:none">
+                                                    <div class="attachbtn"><i class="far fa-images"></i></div>
+                                                </label></div>
+                                        </div>
+                                        <div class="fl_r"><button type="submit" class="btns">Post</button></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+                </form>
+                <div class="blog_box" *ngFor="let item of profile; let idx = index">
+                    <section class="conts">
+                        <div *ngIf="!item.image" 
+                            ><i class="far fa-user-circle"></i></div>
+                        <div class="imgs" *ngIf="item.image" 
+                            [ngStyle]="{'background-image': 'url('+ item.image + ')'}"></div>
+                        <article class="cont_txt">
+                            <div class="top_bar">
+                                <div class="pstdtl">
+                                    <span class="nms pointer">
+                                        <span><i class="far fa-user-circle" style="font-size: 20px;"></i></span> &nbsp;
+                                        <a routerLink="/profile/{{item.userId}}">{{item.userName}}</a></span>
+                                    <span class="tms "><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{item.datePosted}}</span>
+                                </div>
+                            </div>
+                            <div class="mdl_bar">
+                                <p>{{item.postMsg}}</p>
+                            </div>
+                            <div class="btm_bar">
+                                <section class="cmtlist">
+                                    <div class="tablearea vtop" *ngFor="let reply of item.replies">
+                                        <div class="cell pht"><span>
+                                                <i class="far fa-user-circle" style="font-size: 25px;"></i></span></div>
+                                        <div class="cell cnt">
+                                            <div class="pstdtl"><span class="nms"><a
+                                                routerLink="/profile/{{reply.userId}}">{{reply.userName}}</a></span><span class="tms"><i
+                                                        class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{reply.datePosted}}</span></div>
+                                            <p>{{reply.postMsg}}</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="tablearea vtop">
+                                    <div class="cell pht">
+                                        <span >
+                                        <i class="far fa-user-circle" style="font-size: 30px;"></i></span></div>
+                                    <div class="cell cnt">
+                                        <textarea class="inputarea" placeholder="Write comment..." #cmt></textarea>
+                                        <button type="submit" (click)="postComment(idx, cmt)">
+                                            <i class="far fa-paper-plane"></i></button></div>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<footer class="mainfooter">
+    <div class="wrapper"></div>
+</footer>
+
+<script src="assets/js/script.js" type="text/javascript"></script>
+<script type="text/javascript"></script>
